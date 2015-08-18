@@ -6,6 +6,10 @@ Work in progress.
 
 ### Build
 
+    $ docker build -t s3-backed-ftp-server .
+
+### Run
+
 ```
 $ docker run -itd \
   --cap-add mknod \
@@ -23,9 +27,7 @@ $ docker run -itd \
 
 Use `openssl -1` to generate hashed plain password for `FTP_PASSWORD`.
 
-### Run
-
-#### Tag and Push
+### Tag and Push
 
     $ docker tag s3-backed-ftp-server flaccid/s3-backed-ftp-server
     $ docker push flaccid/s3-backed-ftp-server
