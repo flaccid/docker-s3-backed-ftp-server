@@ -2,8 +2,8 @@ FROM       xueshanf/s3fs
 MAINTAINER Chris Fordham <chris@fordham-nagy.id.au>
 
 # USAGE
-# $ docker build -t docker-s3-backed-ftp-server .
-# $ docker run docker-s3-backed-ftp-server
+# $ docker build -t s3-backed-ftp-server .
+# $ docker run s3-backed-ftp-server
 #    or detached, with user/pass (ftp/ftp) and port forward:
 #        docker run -itd \
 #          --cap-add mknod \
@@ -16,11 +16,11 @@ MAINTAINER Chris Fordham <chris@fordham-nagy.id.au>
 #          -e 'AWS_SECRET_ACCESS_KEY=X3p...lK1' \
 #          -e FTP_USER=vftp \
 #          -e FTP_PASSWORD='$1$qSvGek8Y$r4xPYlK5lCWhuVxdfKvf7.' \
-#            docker-s3-backed-ftp-server
+#            s3-backed-ftp-server
 
 # tag and push
-# $ docker tag docker-s3-backed-ftp-server flaccid/docker-s3-backed-ftp-server
-# $ docker push flaccid/docker-s3-backed-ftp-server
+# $ docker tag s3-backed-ftp-server flaccid/s3-backed-ftp-server
+# $ docker push flaccid/s3-backed-ftp-server
 
 RUN groupadd -g 48 ftp && \
     useradd --no-create-home --home-dir /srv -s /bin/false --uid 48 --gid 48 -c 'ftp daemon' ftp
