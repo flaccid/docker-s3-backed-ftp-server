@@ -1,0 +1,18 @@
+s3-backed-ftp-server:
+  ports:
+  - 21/tcp
+  restart: on-failure:5
+  environment:
+    S3_BUCKET: clickstream-test
+    AWS_ACCESS_KEY_ID: foo
+    AWS_SECRET_ACCESS_KEY: bar
+    FTP_USER: vftp
+    FTP_PASSWORD: $1$qSvGek8Y$r4xPYlK5lCWhuVxdfKvf7.
+  labels:
+    io.rancher.scheduler.global: 'true'
+  tty: true
+  image: flaccid/s3-backed-ftp-server
+  stdin_open: true
+  cap_add:
+  - MKNOD
+  - SYS_ADMIN
